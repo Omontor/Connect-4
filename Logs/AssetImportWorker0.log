@@ -154,3 +154,69 @@ Received Import Request.
 Start importing Assets/Prefabs/Yellow.prefab using Guid(aa041a41d788df34aaddf18545bee017) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd3c79018cb53a00e2dfdc437f61b6a98') in 0.010881 seconds
   Import took 0.016453 seconds .
 
+========================================================================
+Received Import Request.
+  Time since last request: 413.997117 seconds.
+  path: Assets/Scenes/SampleScene.unity
+  artifactKey: Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/SampleScene.unity using Guid(2cda990e2423bbf4892e6590ba056729) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '249e5adf2e27544c166ac91c39e379cb') in 0.008604 seconds
+  Import took 0.012095 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.154002 seconds.
+  path: Assets/Scenes/MainMenu.unity
+  artifactKey: Guid(93cc22c4595d5554ebea570a32488a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MainMenu.unity using Guid(93cc22c4595d5554ebea570a32488a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e43e085167df4436bee7aebb882a700a') in 0.008397 seconds
+  Import took 0.011857 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000534 seconds.
+  path: Assets/Scenes/MainMenu.unity
+  artifactKey: Guid(93cc22c4595d5554ebea570a32488a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/MainMenu.unity using Guid(93cc22c4595d5554ebea570a32488a9d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e43e085167df4436bee7aebb882a700a') in 0.002971 seconds
+  Import took 0.006517 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 75.249522 seconds.
+  path: Assets/BebasNeue-Regular.ttf
+  artifactKey: Guid(cdd9082e94509fd49b386ec8b01c80b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/BebasNeue-Regular.ttf using Guid(cdd9082e94509fd49b386ec8b01c80b7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d0d81bce015de59ddf4b119280ef03f') in 0.042425 seconds
+  Import took 0.047135 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.720258 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.006645 seconds
+  Import took 0.010272 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001485 seconds.
+  path: Assets
+  artifactKey: Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets using Guid(00000000000000001000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '42d402b061de3733987d63b9cc3b64de') in 0.002711 seconds
+  Import took 0.006114 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.084700 seconds.
+  path: Assets/Fonts
+  artifactKey: Guid(e87736db9894e404295a4500ba17655d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts using Guid(e87736db9894e404295a4500ba17655d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4d567e05d004021b3456b568ef504540') in 0.007849 seconds
+  Import took 0.011584 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 56.856855 seconds.
+  path: Assets/Fonts/BebasNeue-Regular SDF.asset
+  artifactKey: Guid(e785410f83a3b1841aa86c11e2b07c11) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Fonts/BebasNeue-Regular SDF.asset using Guid(e785410f83a3b1841aa86c11e2b07c11) Importer(815301076,1909f56bfc062723c751e8b465ee728b) Shader 'TextMeshPro/Distance Field': fallback shader 'TextMeshPro/Mobile/Distance Field' not found
+ -> (artifact id: '2841dd37ae3241c55acac54a1b919eed') in 0.043657 seconds
+  Import took 0.047530 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

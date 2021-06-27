@@ -191,8 +191,36 @@ public class GameManager : MonoBehaviour
         {
             for (int y = 0; y < boardHeight -3; y++)
             {
-                //If our value is repeated 4 times then we win horizontally
+                //If our value is repeated 4 times then we win vertically
                 if (boardState[x, y] == playerNum && boardState[x, y + 1] == playerNum && boardState[x, y + 2] == playerNum && boardState[x, y + 3] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+
+
+        //Diagonal
+
+
+        for (int x = 0; x < boardWidth - 3; x++)
+        {
+            for (int y = 0; y < boardHeight - 3; y++)
+            {
+                //If our value is repeated 4 times then we win diagonally
+                if (boardState[x, y] == playerNum && boardState[x +1 , y + 1] == playerNum && boardState[x + 2, y + 2] == playerNum && boardState[x +3 , y + 3] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+        //Other diagonal
+        for (int x = 0; x < boardWidth - 3; x++)
+        {
+            for (int y = 0; y < boardHeight - 3; y++)
+            {
+                //If our value is repeated 4 times then we win diagonally
+                if (boardState[x, y + 3] == playerNum && boardState[x +1 , y + 2] == playerNum && boardState[x + 2, y + 1] == playerNum && boardState[x +3 , y] == playerNum)
                 {
                     return true;
                 }

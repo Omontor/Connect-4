@@ -73,6 +73,11 @@ public class GameManager : MonoBehaviour
             //Once instantiated we move it as a child of Checkerpartent to keep al the checkers in one place
             checker.transform.SetParent(CheckerParent.transform);
             player1Turn = false;
+
+            if (DidWin(1))
+            {
+                Debug.LogWarning("Player won");
+            }
         }
         //If it's the CPU's turn we run instantiate the other checker
         else
@@ -81,6 +86,11 @@ public class GameManager : MonoBehaviour
             var checker = Instantiate(player2, spawnLocations[column].transform.position, Quaternion.identity);
             checker.transform.SetParent(CheckerParent.transform);
             player1Turn = true;
+
+            if (DidWin(2))
+            {
+                Debug.LogWarning("CPU won");
+            }
         }
 
   
@@ -154,5 +164,49 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+
+    bool DidWin(int playerNum)
+    {
+        //Horizontal win validation
+        //We cycle trough the array horizontally to check for repeated values 
+        for (int x = 0; x < boardWidth - 3; x++)
+            
+        {
+            for (int y = 0; y < boardHeight; y ++)
+            {   
+                //If our value is repeated 4 times then we win horizontally
+                if (boardState[x, y] == playerNum && boardState[x + 1, y] == playerNum && boardState[x + 2, y] == playerNum && boardState[x + 3, y] == playerNum)
+                {
+                    return true;
+                }
+            }
+
+           // If none of this conditions are met, then player hasn't win
+        }
+        return false;
+    }
+
+    void WinGame()
+    {
+
+
+    }
+
+    void LoseGame ()
+    {
+
+
+    }
+
+    void RestartGame()
+    {
+
+
+    }
+
+    void Quitagame()
+    {
+
+    }
    
 }

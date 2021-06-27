@@ -93,6 +93,10 @@ public class GameManager : MonoBehaviour
             }
         }
 
+        if (didDraw())
+        {
+            Debug.LogWarning("Draw");
+        }
   
     }
 
@@ -231,6 +235,20 @@ public class GameManager : MonoBehaviour
         return false;
     }
 
+    bool didDraw ()
+    {
+
+        for (int x = 0; x < boardWidth; x++)
+        {
+            if (boardState[x,boardHeight - 1] == 0)
+            {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
     void WinGame()
     {
 
@@ -238,6 +256,12 @@ public class GameManager : MonoBehaviour
     }
 
     void LoseGame ()
+    {
+
+
+    }    
+    
+    void DrawGane ()
     {
 
 

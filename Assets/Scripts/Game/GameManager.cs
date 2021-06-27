@@ -54,8 +54,7 @@ public class GameManager : MonoBehaviour
             checker.transform.SetParent(CheckerParent.transform);
         }
 
-        //Switch turn after instantiating
-        SwitchTurns();
+  
     }
 
 
@@ -100,6 +99,7 @@ public class GameManager : MonoBehaviour
             columns[i].GetComponent<Button>().interactable = true;
             Debug.Log("Every column is re-enabled");
         }
-
+        //Switch turn after checker drops
+        SwitchTurns();
     }
 }

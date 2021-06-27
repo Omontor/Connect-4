@@ -21,9 +21,8 @@ public class ColumnManager : MonoBehaviour
     {
         Debug.Log("You just pressed column " + number);
         //Use current id to indicate which column was pressed
-        gm.TakeTurn(number);
-        //Disable buttons momentarily
-        gm.StartCoroutine("CoolOffButton");
+        gm.selectColumn(number);
+    
     }
     
 }

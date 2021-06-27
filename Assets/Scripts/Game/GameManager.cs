@@ -183,6 +183,23 @@ public class GameManager : MonoBehaviour
 
            // If none of this conditions are met, then player hasn't win
         }
+
+
+        //Vertical
+
+        for (int x = 0; x < boardWidth; x++)
+        {
+            for (int y = 0; y < boardHeight -3; y++)
+            {
+                //If our value is repeated 4 times then we win horizontally
+                if (boardState[x, y] == playerNum && boardState[x, y + 1] == playerNum && boardState[x, y + 2] == playerNum && boardState[x, y + 3] == playerNum)
+                {
+                    return true;
+                }
+            }
+        }
+
+
         return false;
     }
 

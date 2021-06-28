@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -27,12 +28,18 @@ public class GameManager : MonoBehaviour
     int boardHeight = 6;
     int boardWidth = 7;
     // @D Array so we know which spaces are taken 
-    int[,] boardState; 
+    int[,] boardState;
     // 0 is empty, 1 is player1, 2 is CPU
+
+    bool gameStopped;
+    // UI elements
+    public GameObject cpuThinkingPanel, finalPanel;
+
 
 
     private void Start()
     {
+        
         //Assign id to each column
         for (int i = 0; i < columns.Length; i++)
         {
@@ -72,11 +79,13 @@ public class GameManager : MonoBehaviour
             var checker = Instantiate(player1, spawnLocations[column].transform.position, Quaternion.identity);
             //Once instantiated we move it as a child of Checkerpartent to keep al the checkers in one place
             checker.transform.SetParent(CheckerParent.transform);
+            checker.transform.localScale = new Vector2(.85f, .85f);
             player1Turn = false;
 
             if (DidWin(1))
             {
                 Debug.LogWarning("Player won");
+                StartCoroutine(wintTime());
             }
         }
         //If it's the CPU's turn we run instantiate the other checker
@@ -85,17 +94,20 @@ public class GameManager : MonoBehaviour
                //Instantiate and move to parent
             var checker = Instantiate(player2, spawnLocations[column].transform.position, Quaternion.identity);
             checker.transform.SetParent(CheckerParent.transform);
+            checker.transform.localScale = new Vector2(.85f, .85f);
             player1Turn = true;
 
             if (DidWin(2))
             {
                 Debug.LogWarning("CPU won");
+                StartCoroutine(loseTime());
             }
         }
 
         if (didDraw())
         {
             Debug.LogWarning("Draw");
+            StartCoroutine(drawTime());
         }
   
     }
@@ -122,6 +134,18 @@ public class GameManager : MonoBehaviour
     }
 
 
+    //CPU randomness
+
+    IEnumerator CPUTurn ()
+    {
+        yield return new WaitForSeconds(1);
+        var cputhink = Instantiate(cpuThinkingPanel);
+        //Simulate decision taking by the CPU
+        yield return new WaitForSeconds(Random.Range(2, 5));
+        Destroy(cputhink);
+        selectColumn(Random.Range(0, columns.Length));
+    }
+
     public IEnumerator CoolOffButton()
     {
         // Disable every column by cicling trhough the array
@@ -142,6 +166,10 @@ public class GameManager : MonoBehaviour
         }
         //Switch turn after checker drops
         SwitchTurns();
+        if (!player1Turn && !gameStopped)
+        {
+            StartCoroutine(CPUTurn());
+        }
     }
 
      bool updateBoardState (int column)
@@ -249,33 +277,73 @@ public class GameManager : MonoBehaviour
 
     }
 
+
+    
+
+    public void StartGame()
+    {
+        Destroy(GameObject.Find("InitialCanvas"));
+        gameObject.GetComponent<AudioSource>().Play();
+    }
+
+
+    IEnumerator wintTime()
+    {
+        gameStopped = true;
+        yield return new WaitForSeconds(3);
+        WinGame();
+    }
+
     void WinGame()
     {
+        
+        gameObject.GetComponent<AudioSource>().Stop();
+        var panelfinal = Instantiate(finalPanel);
+        panelfinal.GetComponent<FInalCanvasManager>().title.text = "You won!";
+        panelfinal.GetComponent<FInalCanvasManager>().text.text = "Congratulations, you won! Thanks for playing, use the following buttons to exit or play again";
+        
+    }
 
+    IEnumerator loseTime ()
+    {
 
+        gameStopped = true;
+        yield return new WaitForSeconds(3);
+        LoseGame();
     }
 
     void LoseGame ()
     {
+        gameObject.GetComponent<AudioSource>().Stop();
+        var panelfinal = Instantiate(finalPanel);
+        panelfinal.GetComponent<FInalCanvasManager>().title.text = "You lost!";
+        panelfinal.GetComponent<FInalCanvasManager>().text.text = "Better luck next time!";
 
 
-    }    
-    
+    }
+
+    IEnumerator drawTime()
+    {
+        gameStopped = true;
+        yield return new WaitForSeconds(3);
+        DrawGane();
+
+    }
+
     void DrawGane ()
     {
+        gameObject.GetComponent<AudioSource>().Stop();
+        var panelfinal = Instantiate(finalPanel);
+        panelfinal.GetComponent<FInalCanvasManager>().title.text = "Draw Game";
+        panelfinal.GetComponent<FInalCanvasManager>().text.text = "This game ended up in a tie! Try to replay and see if you can win";
 
 
     }
 
-    void RestartGame()
+    public void changescene(int scene)
     {
-
-
-    }
-
-    void Quitagame()
-    {
+        SceneManager.LoadScene(scene);
 
     }
-   
+
 }
